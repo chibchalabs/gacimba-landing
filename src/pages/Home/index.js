@@ -1,0 +1,104 @@
+import React from "react";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+import Snapshot from "../../assets/snapshot.png";
+import { white } from "material-ui/styles/colors";
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    padding: theme.spacing(8, 4, 8),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  heroText: {
+    color: white,
+  },
+  heroImage: {
+    width: "100%",
+    height: undefined,
+    maxWidth: 500,
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8, 8, 8, 8),
+    paddingBottom: theme.spacing(8, 8, 8, 8),
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardMedia: {
+    paddingTop: "56.25%", // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+export default function Home() {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <main>
+        {/* Hero unit */}
+        <Grid container alignItems="center" direction="row">
+          <Grid item xs={12} md={6}>
+            <div className={classes.heroContent}>
+              <Container maxWidth="sm" direction="row" justify="center">
+                <Typography
+                  variant="h5"
+                  align="center"
+                  paragraph
+                  className={classes.heroText}
+                >
+                  Bienvenido a la primera red social de memes de Colombia. Crea
+                  tu cuenta y comparte tu contenido a miles de seguidores
+                </Typography>
+                <div className={classes.heroButtons}>
+                  <Grid container spacing={3} justify="center">
+                    <Grid item>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        href="https://play.google.com/store/apps/details?id=com.chibchalabs.proyectomm"
+                      >
+                        DESCARGAR
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </div>
+              </Container>
+            </div>
+          </Grid>
+          <Grid container xs={12} md={6}>
+            <Container className={classes.cardGrid}>
+              {/* End hero unit */}
+              <Grid container spacing={4} justify="center">
+                <img alt="" src={Snapshot} className={classes.heroImage} />
+              </Grid>
+            </Container>
+          </Grid>
+        </Grid>
+      </main>
+    </React.Fragment>
+  );
+}
