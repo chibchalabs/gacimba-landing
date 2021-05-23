@@ -1,24 +1,38 @@
-import React, { useState } from "react";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import React from "react";
+import { Container, Grid, Box, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { white } from "material-ui/styles/colors";
 
-export default function MySelect() {
-  const [value, setValue] = useState("first");
+const useStyles = makeStyles(() => ({
+  root: { flex: 1 },
+  title: {},
+  content: {},
+}));
+
+export default function Contact() {
+  const classes = useStyles();
 
   return (
-    <FormControl>
-      <InputLabel htmlFor="my-select">My Select</InputLabel>
-      <Select
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        inputProps={{ id: "my-select" }}
-      >
-        <MenuItem value="first">First</MenuItem>
-        <MenuItem value="second">Second</MenuItem>
-        <MenuItem value="third">Third</MenuItem>
-      </Select>
-    </FormControl>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      spacing={5}
+      direction="column"
+      className={classes.root}
+    >
+      <CssBaseline />
+      <Grid item>
+        <Typography variant="h3" component="h1">
+          Contacto
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="h4" component="h2">
+          info@chibchalabs.com
+        </Typography>
+      </Grid>
+    </Grid>
   );
 }

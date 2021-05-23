@@ -10,9 +10,6 @@ import Snapshot from "../../assets/snapshot.png";
 import { white } from "material-ui/styles/colors";
 
 const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
   heroContent: {
     padding: theme.spacing(8, 4, 8),
   },
@@ -23,31 +20,9 @@ const useStyles = makeStyles((theme) => ({
     color: white,
   },
   heroImage: {
-    width: "100%",
+    flex: 1,
     height: undefined,
-    maxWidth: 500,
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8, 8, 8, 8),
-    paddingBottom: theme.spacing(8, 8, 8, 8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-  title: {
-    flexGrow: 1,
+    maxWidth: "100%",
   },
 }));
 
@@ -55,12 +30,12 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Container>
       <CssBaseline />
       <main>
         {/* Hero unit */}
         <Grid container alignItems="center" direction="row">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <div className={classes.heroContent}>
               <Container maxWidth="sm" direction="row" justify="center">
                 <Typography
@@ -89,16 +64,15 @@ export default function Home() {
               </Container>
             </div>
           </Grid>
-          <Grid container xs={12} md={6}>
-            <Container className={classes.cardGrid}>
-              {/* End hero unit */}
-              <Grid container spacing={4} justify="center">
-                <img alt="" src={Snapshot} className={classes.heroImage} />
-              </Grid>
-            </Container>
+          <Grid container xs={12} md={5}>
+            <img
+              src={Snapshot}
+              className={classes.heroImage}
+              alt="Gacimba Snapshot"
+            />
           </Grid>
         </Grid>
       </main>
-    </React.Fragment>
+    </Container>
   );
 }
